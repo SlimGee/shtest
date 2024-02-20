@@ -8,11 +8,13 @@
 </head>
 
 <body>
+<div class="container mx-auto">
     <h1 class="text-3xl font-bold underline">
         Domains for client #293785
     </h1>
-
-    <table class="mt-16 table-auto">
+<div class="relative overflow-x-auto mt-16">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <table class="table-auto w-full text-sm text-left rtl:text-right text-gray-500">
         <thead>
             <tr>
                 <th>#</th>
@@ -30,7 +32,7 @@
                 <th>Tech Support</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="gap-y-4">
             @foreach ($domains as $domain)
                 <tr>
                     <td>{{ $domain['domain_id'] }}</td>
@@ -38,9 +40,9 @@
                     <td>{{ $domain['domain'] }}</td>
                     <td>{{ $domain['state'] }}</td>
                     <td>{{ $domain['api'] }}</td>
-                    <td>{{ $domain['locked'] }}</td>
-                    <td>{{ $domain['private'] }}</td>
-                    <td>{{ $domain['pending'] }}</td>
+                    <td>{{ $domain['locked']==0 ? 'No' : 'Yes' }}</td>
+                    <td>{{ $domain['private']==1 ? 'Yes' : 'No' }}</td>
+                    <td>{{ $domain['pending']==1 ? 'Yes' : 'No' }}</td>
                     <td>{{ $domain['registrant_name'] }}</td>
                     <td>{{ $domain['dateregistered'] }}</td>
                     <td>{{ $domain['client_name'] }}</td>
@@ -50,6 +52,9 @@
             @endforeach
         </tbody>
     </table>
+</div>
+</div>
+</div>
 </body>
 
 </html>
